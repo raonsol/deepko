@@ -4,7 +4,7 @@
 
 ```bash
 cd 04-JupyterHub
-docker build -t kwater/deepko:hub -f Dockerfile.client .
+docker build -t kwater/deepko:hub -f jupyterhub_client.Dockerfile .
 ```
 
 ## Deploy host image (jupyterhub)
