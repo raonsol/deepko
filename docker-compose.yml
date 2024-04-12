@@ -1,4 +1,8 @@
 version: '2'
+networks:
+  jupyterhub:
+    name: jupyterhub
+    
 services:
   kaggle:
     # 로컬 빌드시
@@ -13,3 +17,17 @@ services:
         # local 포트:도커 포트
       - "8888:8888"
       - "22:22" # ssh
+
+  jupyterhub:
+    image: kwater/jupyterhub
+    build:
+      context: ./04-JupyterHub
+      dockerfile: jupyterhub.Dockerfile
+    volumes:
+      - ./data:/data
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - "10030:8000"
+    networks:
+      - jupyterhub
+      
