@@ -22,11 +22,13 @@ c.DockerSpawner.image = "kwater/deepko:hub" # 원하는 이미지명
 # c.DockerSpawner.cmd = ["start-singleuser.sh"]  # base image가 jupyter 이미지일 경우에만 사용
 
 # 작업공간 설정
-c.DockerSpawner.notebook_dir = "/data/{username}"
+notebook_dir = '/home/jovyan/work'
+mount_dir = os.environ["JUPYTERHUB_MOUNT_DIR"] #docker-compose에 정의됨
+c.DockerSpawner.notebook_dir = notebook_dir
 c.DockerSpawner.volumes = {
-    "../data/{username}": {"bind": "/data/{username}", "mode": "rw"}
+    mount_dir + "/{username}": {"bind": notebook_dir, "mode": "rw"},
+    mount_dir + "/shared": {"bind": "/home/jovyan/work/shared", "mode": "rw"},
 }
-
 # GPU 설정
 # c.DockerSpawner.extra_create_kwargs.update({"runtime": "nvidia"}) # TODO: runtime 인식을 못함, 아래 코드로 대체
 import docker
