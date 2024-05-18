@@ -11,4 +11,7 @@ ENV HOME=/home/jovyan
 WORKDIR $HOME
 USER jovyan
 
+# unsupported locale setting error 해결
+ENV LC_ALL=C
+
 CMD ["jupyterhub-singleuser", "--ResourceUseDisplay.track_cpu_percent=True"]
