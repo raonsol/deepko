@@ -3,7 +3,8 @@ RUN pip3 install --upgrade \
     jupyterhub \
     notebook \
     jupyterlab \
-    py-cpuinfo
+    py-cpuinfo \
+    openpyxl
 
 # create a user, since we don't want to run as root
 RUN useradd -m jovyan
