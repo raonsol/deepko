@@ -11,13 +11,14 @@ c.DockerSpawner.network_name = "jupyterhub"  # docker-compose.yml의 networks �
 
 # 인증
 c.Authenticator.admin_users = {"admin"}
+c.Authenticator.allow_all = True
 c.LocalAuthenticator.create_system_users = True
 # c.Spawner.http_timeout = 300
 
 # DockerSpawner 설정
 # DockerSpawner를 사용하여 각 사용자마다 독립적인 Jupyter Notebook 컨테이너를 생성
 c.JupyterHub.spawner_class = "dockerspawner.DockerSpawner"
-c.DockerSpawner.image = "kwater/deepko:hub" # 원하는 이미지명
+c.DockerSpawner.image = "kwater22/deepko:hub" # 원하는 이미지명
 # c.DockerSpawner.image = "teddylee777/deepko"
 # c.DockerSpawner.cmd = ["start-singleuser.sh"]  # base image가 jupyter 이미지일 경우에만 사용
 
