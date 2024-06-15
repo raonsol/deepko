@@ -18,7 +18,7 @@ services:
       - "22:22" # ssh
 
   jupyterhub:
-    image: kwater/jupyterhub
+    image: kwater22/jupyterhub
     build:
       context: ./04-JupyterHub
       dockerfile: jupyterhub.Dockerfile
