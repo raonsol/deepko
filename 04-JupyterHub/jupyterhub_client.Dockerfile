@@ -5,7 +5,15 @@ RUN pip3 install --upgrade \
     jupyterlab \
     py-cpuinfo \
     openpyxl
-
+RUN pip3 install --upgrade \
+    jupyterlab_execute_time \
+    jupyterlab-code-formatter \
+    black \
+    isort \
+    jupyterlab-notifications \
+    jupyterlab_nvdashboard \
+    jupyterlab-lsp \
+    'python-lsp-server[all]'
 # create a user, since we don't want to run as root
 RUN useradd -m jovyan
 ENV HOME=/home/jovyan
