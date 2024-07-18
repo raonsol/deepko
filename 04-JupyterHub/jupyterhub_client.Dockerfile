@@ -13,8 +13,9 @@ RUN pip3 install --upgrade \
     jupyterlab-notifications \
     jupyterlab_nvdashboard \
     jupyterlab-lsp \
-    'python-lsp-server[all]'
-# create a user, since we don't want to run as root
+    'python-lsp-server[all]' \
+    jupyter-resource-usage
+    # create a user, since we don't want to run as root
 RUN useradd -m jovyan
 ENV HOME=/home/jovyan
 WORKDIR $HOME
