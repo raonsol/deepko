@@ -4,7 +4,8 @@ RUN pip3 install --upgrade \
     notebook \
     jupyterlab \
     py-cpuinfo \
-    openpyxl
+    openpyxl \
+    comet_ml
 RUN pip3 install --upgrade \
     jupyterlab_execute_time \
     jupyterlab-code-formatter \
@@ -14,8 +15,9 @@ RUN pip3 install --upgrade \
     jupyterlab_nvdashboard \
     jupyterlab-lsp \
     'python-lsp-server[all]' \
-    jupyter-resource-usage
-    # create a user, since we don't want to run as root
+    jupyter-resource-usage \
+    jupyter-tensorboard-proxy
+# create a user, since we don't want to run as root
 RUN useradd -m jovyan
 ENV HOME=/home/jovyan
 WORKDIR $HOME
