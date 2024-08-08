@@ -1,12 +1,15 @@
 FROM teddylee777/deepko
-RUN pip3 install --upgrade \
+RUN pip3 install --upgrade --no-cache-dir \
     jupyterhub \
     notebook \
     jupyterlab \
     py-cpuinfo \
     openpyxl \
-    comet_ml
-RUN pip3 install --upgrade \
+    comet_ml \
+    cufflinks \
+    kaleido \
+    nvidia-cudnn-cu11==8.6.0.163
+RUN pip3 install --upgrade --no-cache-dir \
     jupyterlab_execute_time \
     jupyterlab-code-formatter \
     black \
